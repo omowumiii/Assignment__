@@ -1,0 +1,43 @@
+# create a Class name Parent and create two others
+# classes children and grandchildren. The children must 
+# inherit from their parents, and the grandchildren must inherit from both parents and children.
+# to create atleast two instances and methods for each class using python
+
+
+
+        
+class Parent:
+    def __init__(self, family_name, eye_color):
+        self.family_name= family_name
+        self.eye_color=eye_color
+        
+    def display(self):
+        return f"my name is {self.family_name}, and the color of his eyes is  {self.eye_color}"
+
+class Children(Parent):
+    def __init__(self, family_name,eye_color,  height):
+        super().__init__(family_name, eye_color)
+        self.height=height
+    def display(self):
+        super().display()
+        return f"my family name is {self.family_name} and my eyes color is  {self.eye_color}, and my height is  {self.height} feet"
+
+
+
+class GrandChildren(Children):
+    def __init__(self, family_name,eye_color,  height, intelligence ):
+        super().__init__(family_name, eye_color,height)
+        self.intelligence = intelligence
+    def display(self):
+        super().display()
+        return f"my family name is {self.family_name}, and my eyes  color is  {self.eye_color}, my height is {self.height} feet, and my  intelligence is very {self.intelligence}"
+
+
+
+parent= Parent("Amabali","brown")
+print(parent.display())
+children= Children("Ambali","brown", 5.8)
+print(children.display())
+
+grandchildren= GrandChildren("Ambali","Brown",5.8,"High")
+print(grandchildren.display())
